@@ -1,7 +1,7 @@
 FROM python:alpine
 MAINTAINER sebastian hutter <mail@sebastian-hutter.ch>
 
-ADD build/app/requirements.txt /app/requiremens.txt
+ADD build/app/requirements.txt /app/requirements.txt
 
 RUN apk --no-cache add --virtual build-dependencies build-base gcc binutils linux-headers libffi-dev openssl-dev && \
   apk add --no-cache tini && \
@@ -12,4 +12,4 @@ ENV PYTHONPATH="${PYTHONPATH}:/app"
 ADD build/app /app
 
 ENTRYPOINT ["/sbin/tini", "--"]
-
+CMD ["/usr/local/bin/python3", "/app/autofw.py"]
