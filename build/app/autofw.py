@@ -211,7 +211,7 @@ def main():
 
     # start scheduler
     logger.info('Start scheduler and run update tasks')
-    schedule.every(10).seconds.do(scheduled_task)
+    schedule.every(int(config.schedule)).seconds.do(scheduled_task)
 
     # loop and run scheduled tasks
     while 1:

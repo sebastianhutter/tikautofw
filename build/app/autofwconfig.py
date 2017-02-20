@@ -48,3 +48,6 @@ class AutoFwConfig(object):
 
         # loglevel
         self.loglevel = os.getenv('AUTOFW_LOGLEVEL','info')
+
+        # time in seconds between runs
+        self.schedule = os.getenv('AUTOFW_SCHEDULE','10')
