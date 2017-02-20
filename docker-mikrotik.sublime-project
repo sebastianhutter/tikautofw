@@ -1,0 +1,31 @@
+{
+	"build_systems":
+	[
+		{
+			"file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
+			"name": "Anaconda Python Builder for docker-tikautofw",
+			"selector": "source.python",
+			"shell_cmd": "/Users/sebastian/Repository/private/docker-tikautofw/venv/bin/python -u \"$file\""
+		},
+		{
+			"file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
+			"name": "Anaconda Python Builder",
+			"selector": "source.python",
+			"shell_cmd": "\"/Users/sebastian/Repository/private/docker-mikrotik/venv/bin/python\" -u \"$file\""
+		}
+	],
+	"folders":
+	[
+		{
+			"path": "."
+		}
+	],
+	"settings":
+	{
+		"env_file":
+		{
+			"Darwin": "/Users/sebastian/Repository/private/docker-tikautofw/sublime-env.sh"
+		},
+		"python_interpreter": "/Users/sebastian/Repository/private/docker-tikautofw/venv/bin/python"
+	}
+}
