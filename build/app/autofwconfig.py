@@ -22,14 +22,20 @@ class AutoFwConfig(object):
             raise Exception('Invalid Rancher Configuration')
 
         # docker labels for config
+        # only check running containers?
+        self.docker_check_running=os.getenv('AUTOFW_DOCKER_CHECK_RUNNING','true')
         # whats the container label which activates or disables the automatic fw settings
         self.docker_label_enable=os.getenv('AUTOFW_DOCKER_LABEL_ENABLE','cloud.hutter.autofw.enable')
+        # nat lables
         # whats the label defining the nat rules
         self.docker_label_dstnat=os.getenv('AUTOFW_DOCKER_LABEL_NAT','cloud.hutter.autofw.ip.firewall.dstnat')
         # label for additional comment
         self.docker_label_dstnat_comment=os.getenv('AUTOFW_DOCKER_LABEL_NAT_COMMENT','cloud.hutter.autofw.ip.firewall.dstnat.comment')
-        # only check running containers?
-        self.docker_check_running=os.getenv('AUTOFW_DOCKER_CHECK_RUNNING','true')
+
+        # dns labels
+        # whats the label which holds the dns names
+        self.docker_label_staticdns=os.getenv('AUTOFW_DOCKER_LABEL_DNS','cloud.hutter.autofw.ip.dns.static')
+        self.docker_label_staticdns_comment=os.getenv('AUTOFW_DOCKER_LABEL_DNS_COMMENT','cloud.hutter.autofw.ip.dns.static.comment')
 
         # mikrotik config
         self.mikrotik_address=os.getenv('AUTOFW_MIKROTIK_ADDRESS','')
