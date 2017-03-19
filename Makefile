@@ -1,6 +1,11 @@
 # simple makefile to build and push docker container images
 IMAGE_NAME = "sebastianhutter/tikautofw"
-COMMIT_ID = ""
+
+# if the go label is set overwrite the commit id env variable
+ifneq ($(GO_PIPELINE_LABEL),"")
+export COMMIT_ID := $(GO_PIPELINE_LABEL)
+endif
+
 # build
 # build a new docker image
 build_commit:
