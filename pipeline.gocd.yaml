@@ -1,0 +1,28 @@
+pipelines:
+  Build:
+    group: tikautofw
+    label_template: "${git[:8]}"
+    materials:
+      git:  # this is the name of material
+        git: git@github.com:sebastianhutter/tikautofw.git
+    stages:
+      - Build:
+          jobs:
+            build:
+              tasks:
+               - exec:
+                   command: make
+                   arguments:
+                    - latest
+               - exec:
+                   command: make
+                   arguments:
+                    - build
+      - Publish:
+          jobs:
+            publish:
+              tasks:
+               - exec:
+                   command: make
+                   arguments:
+                    - push
