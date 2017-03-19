@@ -14,10 +14,10 @@ pipelines:
                   command: make
                   arguments:
                     - build_latest
-                - exec:
-                  command: make
-                  arguments:
-                    - build_commit
+#                - exec:
+#                  command: make
+#                  arguments:
+#                    - build_commit
 #      - Publish:
 #          jobs:
 #            publish:
