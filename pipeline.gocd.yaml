@@ -1,5 +1,5 @@
 pipelines:
-  Build:
+  Build_tikautofw:
     group: tikautofw
     label_template: "${repository[:8]}"
     materials:
