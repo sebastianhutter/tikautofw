@@ -1,7 +1,7 @@
 pipelines:
   Build:
     group: tikautofw
-    label_template: "${git[:8]}"
+    label_template: "${repository[:8]}"
     materials:
       repository:
         git: git@github.com:sebastianhutter/tikautofw.git
