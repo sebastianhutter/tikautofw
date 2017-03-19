@@ -5,28 +5,3 @@ pipelines:
     materials:
       gitrepo:
         git: git@github.com:sebastianhutter/tikautofw.git
-    stages:
-      - Build:
-          jobs:
-            build:
-              tasks:
-                - exec:
-                  command: make
-                  arguments:
-                    - build_latest
-#                - exec:
-#                  command: make
-#                  arguments:
-#                    - build_commit
-#      - Publish:
-#          jobs:
-#            publish:
-#              tasks:
-#                - exec:
-#                  command: make
-#                  arguments:
-#                    - push_latest
-#                - exec:
-#                  command: make
-#                  arguments:
-#                    - push_commit
