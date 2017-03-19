@@ -14,10 +14,6 @@ pipelines:
                    command: make
                    arguments:
                     - latest
-               - exec:
-                   command: make
-                   arguments:
-                    - build
       - Publish:
           jobs:
             publish:
@@ -25,4 +21,4 @@ pipelines:
                - exec:
                    command: make
                    arguments:
-                    - push
+                    - push_latest
