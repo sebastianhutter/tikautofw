@@ -3,7 +3,7 @@ pipelines:
     group: tikautofw
     label_template: "${git[:8]}"
     materials:
-      git:  # this is the name of material
+      gitrepo:  # this is the name of material
         git: git@github.com:sebastianhutter/tikautofw.git
     stages:
       - Build:
@@ -18,15 +18,3 @@ pipelines:
                   command: make
                   arguments:
                     - build_commit
-      - Publish:
-          jobs:
-            publish:
-              tasks:
-                - exec:
-                  command: make
-                  arguments:
-                    - push_latest
-                - exec:
-                  command: make
-                  arguments:
-                    - push_commit
