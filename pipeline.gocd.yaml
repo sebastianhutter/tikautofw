@@ -5,20 +5,31 @@ pipelines:
     materials:
       git:  # this is the name of material
         git: git@github.com:sebastianhutter/tikautofw.git
+    environment_variables:
+      COMMIT_ID: $GO_PIPELINE_LABEL
     stages:
       - Build:
           jobs:
             build:
               tasks:
-               - exec:
-                   command: make
-                   arguments:
-                    - latest
+                - exec:
+                  command: make
+                  arguments:
+                    - build_latest
+              tasks:
+                - exec:
+                  command: make
+                  arguments:
+                    - build_commit
       - Publish:
           jobs:
             publish:
               tasks:
-               - exec:
-                   command: make
-                   arguments:
+                - exec:
+                  command: make
+                  arguments:
                     - push_latest
+                - exec:
+                  command: make
+                  arguments:
+                    - push_commit
