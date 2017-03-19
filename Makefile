@@ -14,5 +14,5 @@ latest:
 	docker build -t $(IMAGE_NAME):latest .
 # push the build containers
 .PHONY: push_latest
-push:
+push_latest:
 		docker push $(IMAGE_NAME):latest
