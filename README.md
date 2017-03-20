@@ -14,6 +14,12 @@ The docker container can be fully configured via environment variables
 * AUTOFW_RANCHER_API_KEY = the api key for the rancher api service
 * AUTOFW_RANCHER_API_SECRET = the api secret for the rancher api service
 
+#### vault parameters
+if the following three env variables are specified the container will try to lookup the mikrotik credentials and the rancher api credentials in hashicorp vault. (if found the vault values will overwrite the env variables)
+*AUTOFW_VAULT_SERVER = http url to the vault server
+*AUTOFW_VAULT_ROLE_ID = role id
+*AUTOFW_VAULT_SECRET_ID = secret id
+
 #### optional parameters
 * AUTOFW_DOCKER_CHECK_RUNNING = only check and create fw rules for running containers (defaults to 'true')
 * AUTOFW_DOCKER_LABEL_ENABLE = container label which defines if fw rules will be created for the container (defaults to 'cloud.hutter.autofw.enable')
