@@ -8,7 +8,7 @@ pipelines:
     environment_variables:
       RANCHER_URL: https://rancher.hutter.cloud:8080
       # you can get the service id from the api view in rancher
-      SERVICE_ID: 1s42
+      SERVICE_ID: 1s10
     stages:
       - Build:
           jobs:
