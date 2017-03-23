@@ -35,7 +35,6 @@ class AutoFwConfig(object):
         # if all three values are specified we try to load the credentials for the
         # rancher api and the mikrotik firewall from the vault
         if self.vault_server and self.vault_role_id and self.vault_secret_id:
-            print("jajadiepest")
             try:
                 # load the vault
                 vault = Vault(self.vault_server, role_id=self.vault_role_id, secret_id=self.vault_secret_id)
