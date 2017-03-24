@@ -90,7 +90,12 @@ class Mikrotik(object):
 
                 # log the dict
                 logger.debug(rule)
-                nat_rules.append(DstNatFirewallRule(**rule))
+                try:
+                    nat_rules.append(DstNatFirewallRule(**rule))
+                except:
+                    logger.warn("Not able to load rule '{}'.".format(rule['id']))
+                    pass
+
         return nat_rules
 
     def get_all_static_dns_entries(self):
@@ -153,7 +158,11 @@ class Mikrotik(object):
 
                 # # log the dict
                 logger.debug(entry)
-                dns_entries.append(StaticDnsEntry(**entry))
+                try:
+                    dns_entries.append(StaticDnsEntry(**entry))
+                except:
+                    logger.warn("Not able to load dns entry '{}'.".format(entry['id']))
+                    pass
 
         return dns_entries
 
